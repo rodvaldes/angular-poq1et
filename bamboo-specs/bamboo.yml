@@ -22,8 +22,20 @@ Default Job:
         scripts:
           - |-
             npm install
-            npm run sonar
-    # com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli is disabled. This state is not supported at YAML
+            docker run -ti -v ${bamboo.build.working.directory}:/root/src \
+            roxtrongo/sonar-scanner sonar-scanner \
+            -Dsonar.host.url=http://sonar.cybersyn.test:9000 \
+            -Dsonar.login=${bamboo.sonarpassword} \
+            -Dsonar.projectKey=angular-poc1et \
+            -Dsonar.projectName=angular-poc1et \
+            -Dsonar.projectVersion=0.0.1 \
+            -Dsonar.sourceEncoding=UTF-8 \
+            -Dsonar.sources="./src" \
+            -Dsonar.exclusions="**/node_modules/**,**dist**" \
+            -Dsonar.tests="./src" \
+            -Dsonar.test.inclusions="**/*.spec.ts" \
+            -Dsonar.coverage.exclusions="**/environments/**,**/main.ts,**/test.ts,**/products.ts,**/product-list.component.ts"
+            -Dsonar.typescript.lcov.reportPaths="coverage/lcov.info"
     - script:
         interpreter: SHELL
         scripts:
