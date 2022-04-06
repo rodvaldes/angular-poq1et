@@ -21,11 +21,13 @@ Default Job:
         interpreter: SHELL
         scripts:
           - |-
+            #/bin/sh
+            TKN_VAR=$bamboo_sonarpassword
             npm install
             docker run -ti -v ${bamboo.build.working.directory}:/root/src \
             roxtrongo/sonar-scanner sonar-scanner \
             -Dsonar.host.url=http://sonar.cybersyn.test:9000 \
-            -Dsonar.login=${bamboo.sonarpassword} \
+            -Dsonar.login=$TKN_VAR \
             -Dsonar.projectKey=angular-poc1et \
             -Dsonar.projectName=angular-poc1et \
             -Dsonar.projectVersion=0.0.1 \
