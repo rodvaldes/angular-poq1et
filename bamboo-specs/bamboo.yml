@@ -36,7 +36,7 @@ Default Job:
         description: Script de build docker.
   artifact-subscriptions: []
 repositories:
-  - rvaldes-website:
+  - angulear-poq1et:
       scope: global
 triggers:
   - polling:
