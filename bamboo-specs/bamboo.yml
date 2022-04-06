@@ -21,6 +21,7 @@ Default Job:
         interpreter: SHELL
         scripts:
           - |-
+            npm install
             npm run sonar
     # com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli is disabled. This state is not supported at YAML
     - script:
