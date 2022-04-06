@@ -59,10 +59,6 @@ Default Job:
 repositories:
   - angular-poq1et:
       scope: global
-triggers:
-  - polling:
-      period: '5'
-      description: Trigger
 branches:
   create: manually
   delete: never
