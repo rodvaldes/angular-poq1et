@@ -22,7 +22,7 @@ Default Job:
         scripts:
           - |-
             #/bin/sh
-            TKN_VAR=$bamboo_sonarpassword
+            TKN_VAR=$bamboo_sonarpasswordtoken
             npm install
             docker run --add-host=sonar.cybersyn.test:192.168.60.4 -v ${bamboo.build.working.directory}:/root/src \
             roxtrongo/sonar-scanner sonar-scanner \
