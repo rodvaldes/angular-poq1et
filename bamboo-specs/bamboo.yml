@@ -24,7 +24,7 @@ Default Job:
             #/bin/sh
             TKN_VAR=$bamboo_sonarpassword
             npm install
-            docker run -ti -v ${bamboo.build.working.directory}:/root/src \
+            docker run -v ${bamboo.build.working.directory}:/root/src \
             roxtrongo/sonar-scanner sonar-scanner \
             -Dsonar.host.url=http://sonar.cybersyn.test:9000 \
             -Dsonar.login=$TKN_VAR \
