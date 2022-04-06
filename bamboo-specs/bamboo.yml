@@ -1,0 +1,70 @@
+---
+version: 2
+plan:
+  project-key: DEV
+  key: ANG
+  name: angular-poq1et
+  description: Plan de build de Front End para app Angular.
+stages:
+  - Default Stage:
+      manual: false
+      final: false
+      jobs:
+        - Default Job
+Default Job:
+  key: JOB1
+  tasks:
+    - checkout:
+        force-clean-build: 'true'
+        description: Decarga de código de sitio
+    # com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli is disabled. This state is not supported at YAML
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            # Version key/value should be on his own line
+            version=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
+            registries=(roxtrongo nexus.cybersyn.test:8123)
+            echo $version
+            for i in "${registries[@]}"
+            do
+                echo "Registry: $i"
+                echo "Version: $version"
+                docker build -t "$i/angular-poq1et:$version" .
+                docker push "$i/angular-poq1et:$version"
+            done
+        description: Script de build docker.
+  artifact-subscriptions: []
+repositories:
+  - rvaldes-website:
+      scope: global
+triggers:
+  - polling:
+      period: '5'
+      description: Trigger
+branches:
+  create: manually
+  delete: never
+  link-to-jira: true
+notifications: []
+labels: []
+dependencies:
+  require-all-stages-passing: false
+  enabled-for-branches: true
+  block-strategy: none
+  plans: []
+other:
+  concurrent-build-plugin: system-default
+---
+version: 2
+plan:
+  key: DEV-VUE
+plan-permissions:
+  - users:
+      - bamboo-admin
+    permissions:
+      - view
+      - edit
+      - build
+      - clone
+      - admin
