@@ -16,14 +16,15 @@ Default Job:
   tasks:
     - checkout:
         force-clean-build: 'true'
-        description: Decarga de código de sitio
+        description: Descarga de código de sitio
     # com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli is disabled. This state is not supported at YAML
     - script:
         interpreter: SHELL
         scripts:
           - |-
             # Version key/value should be on his own line
-            version=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
+            #version=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[", ]//g')
+            version=0.0.1
             registries=(roxtrongo nexus.cybersyn.test:8123)
             echo $version
             for i in "${registries[@]}"
