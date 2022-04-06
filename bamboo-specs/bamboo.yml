@@ -17,6 +17,11 @@ Default Job:
     - checkout:
         force-clean-build: 'true'
         description: Descarga de código de sitio
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            npm run sonar
     # com.atlassian.bamboo.plugins.bamboo-docker-plugin:task.docker.cli is disabled. This state is not supported at YAML
     - script:
         interpreter: SHELL
