@@ -36,6 +36,7 @@ Default Job:
             -Dsonar.sources="./src" \
             -Dsonar.exclusions="**/node_modules/**,**dist**" \
             -Dsonar.tests="./src" \
+            -Dsonar.projectBaseDir="/root/src"
             -Dsonar.test.inclusions="**/*.spec.ts" \
             -Dsonar.coverage.exclusions="**/environments/**,**/main.ts,**/test.ts,**/products.ts,**/product-list.component.ts" \
             -Dsonar.typescript.lcov.reportPaths="**/coverage/lcov.info"
