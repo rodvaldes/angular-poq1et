@@ -28,6 +28,7 @@ Default Job:
             roxtrongo/sonar-scanner sonar-scanner \
             -Dsonar.host.url=http://sonar.cybersyn.test:9000 \
             -Dsonar.login=$TKN_VAR \
+            -Dsonar.scm.provider=git \
             -Dsonar.projectKey=angular-poc1et \
             -Dsonar.projectName=angular-poc1et \
             -Dsonar.projectVersion=0.0.1 \
