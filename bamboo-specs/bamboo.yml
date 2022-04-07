@@ -38,7 +38,8 @@ Default Job:
             -Dsonar.exclusions="**/node_modules/**,**dist**" \
             -Dsonar.projectBaseDir="/root/src" \
             -Dsonar.test.inclusions="**/*.spec.ts" \
-            -Dsonar.coverage.exclusions="**/environments/**,**/main.ts,**/test.ts,**/products.ts,**/product-list.component.ts" \
+#            -Dsonar.coverage.exclusions="**/environments/**,**/main.ts,**/test.ts,**/products.ts,**/product-list.component.ts" \
+            -Dsonar.coverage.exclusions="**/environments/**" \
             -Dsonar.typescript.lcov.reportPaths="**/coverage/lcov.info"
     - script:
         interpreter: SHELL
