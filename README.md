@@ -13,5 +13,3 @@ docker run -d -p 80:80 roxtrongo/angular-poq1et:latest
 
 
 ```
-
-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
