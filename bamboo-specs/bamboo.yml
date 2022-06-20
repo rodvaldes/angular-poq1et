@@ -41,6 +41,7 @@ Default Job:
             -Dsonar.test.inclusions="**/*.spec.ts" \
             -Dsonar.coverage.exclusions="**/environments/**" \
             -Dsonar.typescript.lcov.reportPaths="**/coverage/lcov.info"
+            chmod -R uwo +w .
     - script:
         interpreter: SHELL
         scripts:
