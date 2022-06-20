@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: deployment-name
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        label-key : label-value  
+    spec:
+      containers:
+        - name: deploment-container-name
+          image: inyee/spa-demo:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+     
