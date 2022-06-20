@@ -1,17 +1,20 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-name
+  name: angular-poq1e
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: angular-poq1e
   template:
     metadata:
       labels:
-        label-key : label-value
+        app : angular-poq1e
     spec:
       containers:
         - name: angular-poq1et
-          image: angular-poq1et:0.0.1 
+          image: roxtrongo/angular-poq1et:0.0.1
           imagePullPolicy: Always
           ports:
           - containerPort: 80
