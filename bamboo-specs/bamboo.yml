@@ -14,6 +14,7 @@ stages:
 Default Job:
   key: JOB1
   tasks:
+    - clean
     - checkout:
         force-clean-build: 'true'
         description: Descarga de código de sitio
