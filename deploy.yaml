@@ -7,12 +7,11 @@ spec:
   template:
     metadata:
       labels:
-        label-key : label-value  
+        label-key : label-value
     spec:
       containers:
-        - name: deploment-container-name
-          image: inyee/spa-demo:v1
+        - name: angular-poq1et
+          image: angular-poq1et:0.0.1 
           imagePullPolicy: Always
           ports:
           - containerPort: 80
-     
